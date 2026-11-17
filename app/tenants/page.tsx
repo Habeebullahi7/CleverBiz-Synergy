@@ -2,6 +2,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import BottomNav from "@/components/BottomNav";
+
+export const dynamic = "force-dynamic";
 
 export default function Tenants() {
   const [tenants, setTenants] = useState<any[]>([]);
@@ -26,7 +29,7 @@ export default function Tenants() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-32">
       <header className="bg-[#0F2A1A] text-white px-5 py-4 flex justify-between"><p className="font-black">Tenants - REAL DATA</p><Link href="/dashboard">← Dashboard</Link></header>
       <div className="max-w-6xl mx-auto px-5 py-6">
         <div className="bg-white border rounded-2xl p-4 grid gap-3">
@@ -42,6 +45,7 @@ export default function Tenants() {
           ))}
         </div>
       </div>
+      <BottomNav />
     </div>
   );
-}
+          }
