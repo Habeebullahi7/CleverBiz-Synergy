@@ -10,22 +10,37 @@ export default function BottomNav() {
     { href: "/tenants", label: "Tenants", icon: "👥" },
     { href: "/payments", label: "Payments", icon: "🧾" },
   ];
+
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-[0_-5px_20px_rgba(0,0,0,0.08)] z-50 md:hidden">
-      <div className="grid grid-cols-4">
-        {items.map((it) => {
-          const active = path === it.href;
-          return (
-            <Link key={it.href} href={it.href} className={`py-3 text-center ${active ? "text-[#FF6B00] font-black" : "text-gray-500"}`}>
-              <p className="text-xl leading-none">{it.icon}</p>
-              <p className="text-[11px] mt-1">{it.label}</p>
-              {active && <div className="h-1 w-8 bg-[#FF6B00] rounded-full mx-auto mt-1" />}
-            </Link>
-          );
-        })}
+    <>
+      {/* Floating Pill Nav - Mobile Only */}
+      <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
+        <div className="bg-[#0F2A1A]/95 backdrop-blur-xl border border-white/10 shadow-[0_15px_40px_rgba(0,0,0,0.35)] rounded-full px-2 py-2 flex justify-between items-center">
+          {items.map((it) => {
+            const active = path === it.href;
+            return (
+              <Link
+                key={it.href}
+                href={it.href}
+                className={`flex-1 flex flex-col items-center justify-center py-2 px-1 rounded-full transition-all ${
+                  active ? "bg-[#FF6B00] text-white scale-105 shadow-lg" : "text-white/60"
+                }`}
+              >
+                <span className="text-[20px] leading-none">{it.icon}</span>
+                <span className={`text-[10px] mt-0.5 ${active ? "font-black" : "font-medium"}`}>{it.label}</span>
+              </Link>
+            );
+          })}
+        </div>
       </div>
-      {/* Add space so content no hide behind nav */}
-      <div className="h-[env(safe-area-inset-bottom)] bg-white" />
-    </div>
+
+      {/* Center + Button - Optional, for quick Add */}
+      <Link
+        href="/properties"
+        className="fixed bottom-[88px] right-5 z-50 md:hidden w-12 h-12 bg-[#FF6B00] text-white rounded-full flex items-center justify-center text-2xl font-black shadow-[0_10px_25px_rgba(255,107,0,0.5)] active:scale-95"
+      >
+        +
+      </Link>
+    </>
   );
-        }
+}
