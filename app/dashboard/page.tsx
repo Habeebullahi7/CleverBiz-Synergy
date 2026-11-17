@@ -1,23 +1,62 @@
+"use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
+
+export const dynamic = "force-dynamic";
+
 export default function Dashboard() {
+  const [stats, setStats] = useState({ properties: 0, tenants: 0, totalCollected: 0, totalRentExpected: 0 });
+
+  useEffect(() => {
+    async function load() {
+      const { data: props } = await supabase.from("properties").select("id");
+      const { data: tenants } = await supabase.from("tenants").select("rent");
+      const { data: pays } = await supabase.from("payments").select("amount");
+
+      const totalRent = (tenants || []).reduce((s: number, t: any) => s + (Number(t.rent) || 0), 0);
+      const totalPaid = (pays || []).reduce((s: number, p: any) => s + (Number(p.amount) || 0), 0);
+
+      setStats({
+        properties: props?.length || 0,
+        tenants: tenants?.length || 0,
+        totalCollected: totalPaid,
+        totalRentExpected: totalRent,
+      });
+    }
+    load();
+  }, []);
+
+  const outstanding = stats.totalRentExpected - stats.totalCollected;
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-[#0F2A1A] text-white px-5 py-4 flex justify-between"><p className="font-black">CLEVER-BIZ <span className="text-[#FF6B00]">PropertyPro</span></p><Link href="/" className="text-sm">← Home</Link></header>
+      <header className="bg-[#0F2A1A] text-white px-5 py-4 flex justify-between items-center">
+        <p className="font-black text-lg">CLEVER-BIZ • PropertyPro</p>
+        <Link href="/" className="text-sm underline">Home</Link>
+      </header>
+
       <div className="max-w-6xl mx-auto px-5 py-6">
-        <h1 className="text-2xl font-black">Dashboard</h1>
+        <p className="text-2xl font-black">Welcome back, Habeeb 👋</p>
+        <p className="text-sm text-gray-500">RC: 1238707 • Live data from Supabase</p>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-5">
-          <div className="bg-white p-4 rounded-2xl border"><p className="text-xs text-gray-500">Total Properties</p><p className="text-2xl font-black">24</p></div>
-          <div className="bg-white p-4 rounded-2xl border"><p className="text-xs text-gray-500">Total Tenants</p><p className="text-2xl font-black">18</p></div>
-          <div className="bg-white p-4 rounded-2xl border"><p className="text-xs text-gray-500">Rent Due This Month</p><p className="text-2xl font-black text-[#FF6B00]">₦4.2M</p></div>
-          <div className="bg-white p-4 rounded-2xl border"><p className="text-xs text-gray-500">Total Sales</p><p className="text-2xl font-black">₦12.5M</p></div>
+          <div className="bg-white border rounded-2xl p-4"><p className="text-xs text-gray-500">Properties</p><p className="text-2xl font-black">{stats.properties}</p></div>
+          <div className="bg-white border rounded-2xl p-4"><p className="text-xs text-gray-500">Tenants</p><p className="text-2xl font-black">{stats.tenants}</p></div>
+          <div className="bg-white border rounded-2xl p-4"><p className="text-xs text-gray-500">Total Collected</p><p className="text-2xl font-black text-green-600">₦{stats.totalCollected.toLocaleString()}</p></div>
+          <div className="bg-white border rounded-2xl p-4"><p className="text-xs text-gray-500">Outstanding</p><p className="text-2xl font-black text-red-600">₦{outstanding.toLocaleString()}</p></div>
         </div>
-        <div className="grid md:grid-cols-3 gap-3 mt-4">
-          <Link href="/properties" className="bg-white p-5 rounded-2xl border font-bold">🏠 Properties →</Link>
-          <Link href="/tenants" className="bg-white p-5 rounded-2xl border font-bold">👥 Tenants →</Link>
-          <Link href="/rent" className="bg-white p-5 rounded-2xl border font-bold">💰 Rent Management →</Link>
-          <Link href="/sales" className="bg-white p-5 rounded-2xl border font-bold">📄 Sales / Land →</Link>
-          <Link href="/payments" className="bg-white p-5 rounded-2xl border font-bold">🧾 Payments & Receipts →</Link>
-          <Link href="/login" className="bg-white p-5 rounded-2xl border font-bold">⚙️ Logout →</Link>
+
+        <div className="grid md:grid-cols-4 gap-3 mt-5">
+          <Link href="/properties" className="bg-[#0F2A1A] text-white rounded-2xl p-5"><p className="text-3xl">🏠</p><p className="font-bold mt-2">Properties</p><p className="text-xs text-white/70">Add / View</p></Link>
+          <Link href="/tenants" className="bg-white border rounded-2xl p-5"><p className="text-3xl">👥</p><p className="font-bold mt-2">Tenants</p><p className="text-xs text-gray-500">Add / View</p></Link>
+          <Link href="/payments" className="bg-white border rounded-2xl p-5"><p className="text-3xl">🧾</p><p className="font-bold mt-2">Payments</p><p className="text-xs text-gray-500">Receipts + WhatsApp</p></Link>
+          <Link href="/sales" className="bg-white border rounded-2xl p-5"><p className="text-3xl">💰</p><p className="font-bold mt-2">Sales</p><p className="text-xs text-gray-500">Land / House Sales</p></Link>
+        </div>
+
+        <div className="bg-white border rounded-2xl p-5 mt-5">
+          <p className="font-black">Quick Test</p>
+          <p className="text-sm text-gray-500 mt-1">Add 1 Tenant with ₦2,500,000 rent + 1 Payment of ₦2,500,000 → Dashboard Outstanding go become ₦0. That na real business logic.</p>
         </div>
       </div>
     </div>
