@@ -1,0 +1,3 @@
+// app/contact/page.tsx
+import Footer from "@/components/Footer";
+export default function Contact(){ return <div className="min-h-screen bg-white"><div className="max-w-3xl mx-auto px-5 py-10"><h1 className="text-3xl font-black">Contact Us</h1><p className="mt-4">📞 +234 808 8735 444<br/>✉️ info@cleverbiz.com.ng<br/>🌐 www.cleverbiz.com.ng</p><p className="mt-4 font-bold">Head Office</p><p>Clever-Biz Plaza, Adigbe, Abeokuta, Ogun State.</p><p className="mt-3 font-bold">Branch</p><p>3 Church St, Akowonjo, Lagos.</p><a href="https://wa.me/2348088735444" target="_blank" className="inline-block bg-[#25D366] text-white font-bold px-5 py-3 rounded-full mt-5">Chat on WhatsApp</a></div><Footer/></div> }
