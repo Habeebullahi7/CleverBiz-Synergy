@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import Footer from "@/components/Footer";
 export const dynamic = "force-dynamic";
 
 export default function Home() {
@@ -17,7 +18,6 @@ export default function Home() {
     load();
   }, []);
 
-  // Filter for search box
   const filtered = list.filter((p) => {
     if (filterType !== "All" && p.type !== filterType) return false;
     if (filterTag !== "All") {
@@ -29,7 +29,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* HEADER - SAME AS YOURS */}
       <header className="flex items-center justify-between px-5 py-4 max-w-6xl mx-auto">
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 bg-[#FF6B00] rounded-lg flex items-center justify-center text-white font-black text-xl">C</div>
@@ -44,13 +43,11 @@ export default function Home() {
         </div>
       </header>
 
-      {/* HERO - SAME AS YOURS + WORKING FILTER */}
       <section className="bg-[#0F2A1A] text-white px-5 py-12">
         <div className="max-w-6xl mx-auto">
           <p className="text-[#FF6B00] font-bold text-sm">● 10 YEARS OF TRUST • SERVICE ABOVE SELF</p>
           <h1 className="text-4xl md:text-5xl font-black mt-3 leading-tight">Find Your Perfect<br />Home With <span className="text-[#FF6B00]">Clever-Biz</span></h1>
           <p className="text-gray-300 mt-3 max-w-lg">Rent, Buy Land & Houses with verified documents. No Omo Onile. Deed, Survey & Family Receipt included.</p>
-
           <div className="bg-white text-black rounded-2xl p-4 mt-6 grid md:grid-cols-4 gap-3">
             <select value={filterTag} onChange={(e) => setFilterTag(e.target.value)} className="border rounded-xl p-3 w-full"><option>All</option><option>Rent - TO LET</option><option>Sale - FOR SALE</option></select>
             <select value={filterType} onChange={(e) => setFilterType(e.target.value)} className="border rounded-xl p-3 w-full"><option>All</option><option>House</option><option>Land</option><option>Apartment</option><option>Shop</option></select>
@@ -58,7 +55,6 @@ export default function Home() {
             <select className="border rounded-xl p-3 w-full"><option>All Areas</option><option>Adigbe</option><option>Kobape</option><option>Akowonjo</option><option>Shasha</option></select>
             <p className="md:col-span-4 bg-[#FF6B00] text-white text-center font-bold py-3 rounded-xl">Showing {filtered.length} Properties Below ↓</p>
           </div>
-
           <div className="flex flex-wrap gap-2 mt-5 text-xs">
             <span className="bg-white/10 px-3 py-1.5 rounded-full">✅ Deed of Assignment</span>
             <span className="bg-white/10 px-3 py-1.5 rounded-full">✅ Registered Survey</span>
@@ -68,7 +64,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LATEST LISTINGS - NOW REAL + PHOTOS */}
       <section className="max-w-6xl mx-auto px-5 py-10">
         <p className="text-[#FF6B00] font-bold text-sm">PROPERTY</p>
         <h2 className="text-2xl font-black">Latest Listings</h2>
@@ -97,7 +92,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES - SAME */}
       <section className="bg-gray-50 py-10 px-5">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-black">Our Services</h2>
@@ -109,7 +103,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VALUES */}
       <section className="max-w-6xl mx-auto px-5 py-10">
         <h2 className="text-2xl font-black">Why Clever-Biz?</h2>
         <p className="text-gray-500 text-sm mt-1">We understand the dynamics of the property market.</p>
@@ -120,15 +113,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER - SAME */}
-      <footer className="bg-[#0F2A1A] text-white">
-        <div className="max-w-6xl mx-auto px-5 py-10 grid md:grid-cols-3 gap-6 text-sm">
-          <div><p className="font-black text-lg">Clever Biz <span className="text-[#FF6B00]">Synergy Links Nig. Ltd.</span></p><p className="text-gray-400 text-xs mt-1">RC: 1238707</p><p className="mt-3">📞 +234 808 8735 444</p><p>✉️ info@cleverbiz.com.ng</p><p>🌐 www.cleverbiz.com.ng</p></div>
-          <div><p className="font-bold">Head Office</p><p className="text-gray-400 mt-2">Clever-Biz Plaza, Along Idi-Mango Road, Afobaja Junction, Adigbe, Abeokuta, Ogun State.</p></div>
-          <div><p className="font-bold">Branch Office</p><p className="text-gray-400 mt-2">3 Church St, Akowonjo, 102213, Lagos, Nigeria.</p><a href="https://wa.me/2348088735444" className="inline-block mt-4 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-xs">Chat on WhatsApp →</a></div>
-        </div>
-        <p className="text-center text-[11px] text-gray-500 pb-6">© 2026 Clever Biz Synergy Links Nig. Ltd. All rights reserved.</p>
-      </footer>
+      {/* NEW STANDARD FOOTER - REPLACES OLD ONE */}
+      <Footer />
     </div>
   );
-  }
+          }
