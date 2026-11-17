@@ -11,7 +11,7 @@ export default function Payments() {
   const [amount, setAmount] = useState("");
   const [forWhat, setForWhat] = useState("Rent - Akowonjo");
   const [method, setMethod] = useState("Bank Transfer");
-  const [selected, setSelected] = useState<any>(null); // <-- only this one go print
+  const [selected, setSelected] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
   async function load() {
@@ -41,7 +41,6 @@ export default function Payments() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-32">
-      {/* THIS STYLE MAKES PRINT SHOW ONLY RECEIPT */}
       <style>{`
         @media print {
           body * { visibility: hidden; }
@@ -51,14 +50,12 @@ export default function Payments() {
         }
       `}</style>
 
-      {/* HEADER - NO PRINT */}
       <header className="bg-[#0F2A1A] text-white px-5 py-4 flex justify-between no-print">
         <p className="font-black">Payments & Receipts</p>
         <Link href="/dashboard">← Dashboard</Link>
       </header>
 
       <div className="max-w-3xl mx-auto px-5 py-6 no-print">
-        {/* ADD FORM */}
         <div className="bg-white border rounded-2xl p-4 grid gap-3">
           <p className="font-black">+ Record New Payment</p>
           <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Tenant / Buyer Name" className="border rounded-xl p-3 w-full" />
@@ -80,7 +77,6 @@ export default function Payments() {
           <button onClick={add} className="bg-[#FF6B00] text-white font-bold py-3 rounded-xl">{loading ? "Saving..." : "Save Payment → Generate Receipt"}</button>
         </div>
 
-        {/* LIST - SMALL ONLY, NO FULL RECEIPT HERE */}
         <div className="mt-5 grid gap-3">
           {list.map((p) => (
             <div key={p.id} className="bg-white border rounded-2xl p-4 flex justify-between items-center">
@@ -99,13 +95,10 @@ export default function Payments() {
         </div>
       </div>
 
-      {/* SINGLE RECEIPT MODAL - THIS IS THE ONLY THING THAT PRINTS */}
       {selected && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 no-print-modal">
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
           <div className="bg-white w-full max-w-[600px] max-h-[90vh] overflow-y-auto rounded-2xl">
-            {/* RECEIPT ITSELF - ID = single-receipt */}
             <div id="single-receipt" className="p-6 md:p-8 text-black">
-              {/* COMPANY HEADER */}
               <div className="flex justify-between items-start border-b-4 border-[#FF6B00] pb-4">
                 <div className="flex gap-3">
                   <div className="w-14 h-14 bg-[#FF6B00] rounded-xl flex items-center justify-center text-white font-black text-3xl shrink-0">C</div>
@@ -123,7 +116,6 @@ export default function Payments() {
 
               <p className="text-[11px] text-gray-500 mt-3 text-center">Clever-Biz Plaza, Along Idi-Mango Road, Afobaja Junction, Adigbe, Abeokuta, Ogun State. • Branch: 3 Church St, Akowonjo, Lagos<br />📞 +234 808 8735 444 • ✉️ info@cleverbiz.com.ng • 🌐 www.cleverbiz.com.ng</p>
 
-              {/* BODY */}
               <div className="mt-6 space-y-4 text-[15px]">
                 <div className="flex justify-between border-b border-dashed pb-3"><span className="text-gray-500">Received From:</span><span className="font-black text-right">{selected.tenant_name}</span></div>
                 <div className="flex justify-between border-b border-dashed pb-3"><span className="text-gray-500">Being Payment For:</span><span className="font-bold text-right">{selected.for_what}</span></div>
@@ -135,11 +127,15 @@ export default function Payments() {
                 <p className="text-xs text-gray-500 bg-gray-50 p-3 rounded-xl">✅ This receipt is valid for {selected.for_what}. Please keep it safe. No refund after payment except as agreed by management. For verification, call +234 808 8735 444.</p>
               </div>
 
-              {/* SIGNATURE + STAMP */}
+              {/* SIGNATURE - NOW CLEVER-BIZ, NOT HABEEB */}
               <div className="flex justify-between items-end mt-10">
                 <div className="text-center">
-                  <p className="font-[cursive] text-[26px] -mb-1">H. Liasu</p>
-                  <div className="border-t-2 border-black w-40 pt-1"><p className="text-[11px] font-bold">AUTHORIZED SIGNATURE</p><p className="text-[10px] text-gray-500">For: Clever-Biz Synergy Links Nig. Ltd.</p></div>
+                  <p className="font-black text-[26px] leading-none tracking-tight">Clever<span className="text-[#FF6B00]">-Biz</span></p>
+                  <p className="text-[10px] font-bold tracking-[0.2em] text-gray-500 mt-1">SYNERGY LINKS NIG. LTD.</p>
+                  <div className="border-t-2 border-black w-44 pt-1 mt-2 mx-auto">
+                    <p className="text-[11px] font-bold">AUTHORIZED SIGNATURE</p>
+                    <p className="text-[10px] text-gray-500">For: Clever-Biz Synergy Links Nig. Ltd.</p>
+                  </div>
                 </div>
                 <div className="w-24 h-24 border-[3px] border-[#FF6B00] rounded-full flex items-center justify-center rotate-[-12deg] text-center">
                   <p className="text-[#FF6B00] font-black text-[10px] leading-tight">PAID<br />✓<br />CLEVER-BIZ<br />RC 1238707</p>
@@ -149,7 +145,6 @@ export default function Payments() {
               <p className="text-center text-[11px] text-gray-400 mt-6 border-t pt-3">Thank you for doing business with us! • 10 Years of Trust • God Bless You 🙏</p>
             </div>
 
-            {/* MODAL BUTTONS - NO PRINT */}
             <div className="p-4 flex gap-2 no-print border-t bg-gray-50 rounded-b-2xl">
               <button onClick={() => printOne(selected)} className="flex-1 bg-black text-white font-bold py-3 rounded-xl text-sm">🖨️ Print This Receipt Only</button>
               <button onClick={() => shareOne(selected)} className="flex-1 bg-[#25D366] text-white font-bold py-3 rounded-xl text-sm">Share on WhatsApp</button>
@@ -162,4 +157,4 @@ export default function Payments() {
       <div className="no-print"><BottomNav /></div>
     </div>
   );
-      }
+              }
