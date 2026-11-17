@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import BottomNav from "@/components/BottomNav";
 
 export const dynamic = "force-dynamic";
 
@@ -21,9 +22,7 @@ export default function Payments() {
   async function addPayment() {
     if (!tenantName || !amount) return alert("Fill name + amount");
     setLoading(true);
-    const { error } = await supabase.from("payments").insert([
-      { tenant_name: tenantName, amount: Number(amount), for_what: forWhat }
-    ]);
+    const { error } = await supabase.from("payments").insert([{ tenant_name: tenantName, amount: Number(amount), for_what: forWhat }]);
     if (error) alert(error.message);
     else { setTenantName(""); setAmount(""); load(); }
     setLoading(false);
@@ -35,31 +34,21 @@ export default function Payments() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-32">
       <header className="bg-[#0F2A1A] text-white px-5 py-4 flex justify-between">
         <p className="font-black">Payments & Receipts - REAL</p>
         <Link href="/dashboard">← Dashboard</Link>
       </header>
-
       <div className="max-w-6xl mx-auto px-5 py-6">
-        {/* ADD PAYMENT */}
         <div className="bg-white border rounded-2xl p-4 grid gap-3">
           <p className="font-black">+ Record New Payment</p>
           <input value={tenantName} onChange={(e)=>setTenantName(e.target.value)} placeholder="Tenant / Buyer Name" className="border rounded-xl p-3 w-full" />
           <input value={amount} onChange={(e)=>setAmount(e.target.value)} placeholder="Amount - e.g. 2500000" type="number" className="border rounded-xl p-3 w-full" />
           <select value={forWhat} onChange={(e)=>setForWhat(e.target.value)} className="border rounded-xl p-3 w-full">
-            <option>Rent - Adigbe</option>
-            <option>Rent - Akowonjo</option>
-            <option>Land Sale - Kobape</option>
-            <option>House Sale</option>
-            <option>Building Materials</option>
+            <option>Rent - Adigbe</option><option>Rent - Akowonjo</option><option>Land Sale - Kobape</option><option>House Sale</option><option>Building Materials</option>
           </select>
-          <button onClick={addPayment} className="bg-[#FF6B00] text-white font-bold py-3 rounded-xl">
-            {loading ? "Saving..." : "Save Payment → Generate Receipt"}
-          </button>
+          <button onClick={addPayment} className="bg-[#FF6B00] text-white font-bold py-3 rounded-xl">{loading ? "Saving..." : "Save Payment → Generate Receipt"}</button>
         </div>
-
-        {/* RECEIPTS LIST */}
         <div className="grid gap-3 mt-5">
           {list.length === 0 && <p className="bg-white border rounded-2xl p-4 text-gray-500 text-sm">No payments yet.</p>}
           {list.map((p)=>(
@@ -76,6 +65,7 @@ export default function Payments() {
           ))}
         </div>
       </div>
+      <BottomNav />
     </div>
   );
-                                                                                                                          }
+}
