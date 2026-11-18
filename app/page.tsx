@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#F8F6F1]">
-      {/* HEADER - WITH YOUR REAL LOGO - LUXURY */}
+      {/* HEADER - WITH YOUR REAL LOGO */}
       <header className="bg-[#0B2B1E] text-white sticky top-0 z-50 border-b border-white/10">
         <div className="flex items-center justify-between px-4 py-2.5 max-w-6xl mx-auto">
           <Link href="/" className="flex items-center">
@@ -49,35 +49,44 @@ export default function Home() {
         <div className="h-[1px] bg-gradient-to-r from-transparent via-[#FF8A2A]/60 to-transparent" />
       </header>
 
-      {/* HERO - Deep Green + Eloquent Orange */}
-      <section className="bg-[#0B2B1E] text-white px-5 pt-10 pb-14 relative overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-[320px] h-[320px] bg-[#FF6B00]/20 blur-[90px] rounded-full pointer-events-none" />
-        <div className="absolute top-52 -left-24 w-[220px] h-[220px] bg-[#1A5C3F]/60 blur-[70px] rounded-full pointer-events-none" />
-        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF8A2A]/50 to-transparent" />
+      {/* HERO - LUXURIOUS BACKGROUND */}
+      <section className="relative text-white px-5 pt-10 pb-14 overflow-hidden bg-[#071F15]">
+        {/* 1. Deep Luxury Gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#1A5C3F_0%,_#0B2B1E_45%,_#071F15_100%)]" />
+        {/* 2. Gold Glow */}
+        <div className="absolute -top-32 -right-20 w-[380px] h-[380px] bg-[#FF6B00]/25 blur-[100px] rounded-full" />
+        <div className="absolute top-40 -left-24 w-[260px] h-[260px] bg-[#FFD700]/10 blur-[80px] rounded-full" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#0B2B1E]/80 blur-[80px] rounded-full" />
+        {/* 3. Luxury Pattern - Subtle Diamonds */}
+        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: `linear-gradient(45deg, #fff 1px, transparent 1px), linear-gradient(-45deg, #fff 1px, transparent 1px)`, backgroundSize: `28px 28px` }} />
+        {/* 4. Top Gold Line + Bottom Fade */}
+        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFD700]/70 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[60px] bg-gradient-to-t from-[#F8F6F1] to-transparent" />
 
         <div className="max-w-6xl mx-auto relative">
           <div className="flex items-center gap-3">
-            <span className="h-[1px] w-8 bg-[#FF8A2A]" />
-            <p className="text-[#FF8A2A] font-bold text-[11px] tracking-[0.28em]">10 YEARS OF TRUST • SERVICE ABOVE SELF</p>
+            <span className="h-[1px] w-8 bg-gradient-to-r from-[#FFD700] to-[#FF6B00]" />
+            <p className="text-[#FFB877] font-bold text-[11px] tracking-[0.28em]">10 YEARS OF TRUST • SERVICE ABOVE SELF</p>
           </div>
 
-          <h1 className="text-[42px] leading-[1.05] md:text-[64px] font-black mt-5 tracking-tight">
+          <h1 className="text-[42px] leading-[1.05] md:text-[64px] font-black mt-5 tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
             Find Your Perfect<br />
-            Home With <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFB877] via-[#FF6B00] to-[#D14E00]">Clever-Biz</span>
+            Home With <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE9A8] via-[#FF8A2A] to-[#FF6B00]">Clever-Biz</span>
           </h1>
 
-          <p className="text-white/60 mt-4 max-w-[430px] text-[15px] leading-relaxed">
+          <p className="text-white/70 mt-4 max-w-[430px] text-[15px] leading-relaxed">
             Rent, Buy Land & Houses with verified documents. No Omo Onile. Deed, Survey & Family Receipt included.
           </p>
 
           <div className="flex flex-wrap gap-2 mt-5">
             {["✓ Deed of Assignment", "✓ Registered Survey", "✓ Family Receipt", "✓ 24/7 Support"].map(t => (
-              <span key={t} className="bg-white/[0.07] border border-white/10 text-[11px] font-medium px-3 py-1.5 rounded-full text-white/80 backdrop-blur">{t}</span>
+              <span key={t} className="bg-white/[0.08] backdrop-blur-md border border-white/15 text-[11px] font-medium px-3 py-1.5 rounded-full text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">{t}</span>
             ))}
           </div>
 
           {/* LUXURY SEARCH CARD */}
-          <div className="bg-white text-black rounded-[24px] p-4 mt-7 shadow-[0_24px_60px_rgba(0,0,0,0.45)] border border-[#FF6B00]/10">
+          <div className="bg-white/[0.98] text-black rounded-[24px] p-4 mt-7 shadow-[0_30px_70px_rgba(0,0,0,0.5),_inset_0_1px_0_rgba(255,255,255,0.9)] border border-[#FFD700]/30 relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#FFD700] via-[#FF6B00] to-[#FFD700]" />
             <p className="text-[11px] font-black tracking-[0.22em] text-[#0B2B1E]/50 px-1 mb-2.5">SEARCH VERIFIED PROPERTIES</p>
             <div className="grid md:grid-cols-4 gap-2.5">
               <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 border border-black/5">
@@ -97,12 +106,12 @@ export default function Home() {
                 <select className="bg-transparent w-full text-[14px] font-medium outline-none pb-0.5"><option>All Areas</option><option>Adigbe</option><option>Kobape</option><option>Akowonjo</option><option>Shasha</option></select>
               </div>
             </div>
-            <p className="bg-[#0B2B1E] text-white text-center font-bold py-3.5 rounded-[14px] mt-3 text-[14px] tracking-wide">Showing {filtered.length} Properties Below <span className="text-[#FF8A2A]">↓</span></p>
+            <p className="bg-gradient-to-r from-[#0B2B1E] to-[#1A5C3F] text-white text-center font-bold py-3.5 rounded-[14px] mt-3 text-[14px] tracking-wide shadow-lg">Showing {filtered.length} Properties Below <span className="text-[#FFB877]">↓</span></p>
           </div>
 
           <div className="flex gap-7 mt-6">
             <div><p className="font-black text-[19px]">500+</p><p className="text-[10px] tracking-[0.18em] text-white/50">HAPPY CLIENTS</p></div>
-            <div><p className="font-black text-[19px]">10+ <span className="text-[#FF8A2A]">Years</span></p><p className="text-[10px] tracking-[0.18em] text-white/50">OF TRUST</p></div>
+            <div><p className="font-black text-[19px]">10+ <span className="text-[#FFB877]">Years</span></p><p className="text-[10px] tracking-[0.18em] text-white/50">OF TRUST</p></div>
             <div><p className="font-black text-[19px]">100%</p><p className="text-[10px] tracking-[0.18em] text-white/50">VERIFIED</p></div>
           </div>
         </div>
