@@ -29,29 +29,30 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#F8F6F1]">
-      {/* HEADER - Deep Green Luxury */}
+      {/* HEADER - WITH YOUR REAL LOGO - LUXURY */}
       <header className="bg-[#0B2B1E] text-white sticky top-0 z-50 border-b border-white/10">
-        <div className="flex items-center justify-between px-5 py-3.5 max-w-6xl mx-auto">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#FF8A2A] to-[#C94E00] rounded-[10px] flex items-center justify-center text-white font-black text-[20px] shadow-[0_8px_20px_rgba(255,107,0,0.35)]">C</div>
-            <div>
-              <p className="font-black leading-none tracking-[0.08em] text-[14px]">CLEVER-BIZ <span className="text-[#FF8A2A]">PropertyPro</span></p>
-              <p className="text-[9px] tracking-[0.18em] text-white/50 mt-1">RC: 1238707 • SYNERGY LINKS NIG. LTD</p>
+        <div className="flex items-center justify-between px-4 py-2.5 max-w-6xl mx-auto">
+          <Link href="/" className="flex items-center">
+            <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 shadow-[0_8px_20px_rgba(0,0,0,0.25)]">
+              <img
+                src="/logo.png"
+                alt="Clever-Biz Synergy Links Nig. Ltd"
+                className="h-[42px] md:h-[48px] w-auto object-contain"
+              />
             </div>
-          </div>
+          </Link>
           <div className="flex items-center gap-3">
             <Link href="/login" className="text-[13px] font-bold text-white/80">Login</Link>
             <Link href="/dashboard" className="text-[13px] font-bold bg-[#FF6B00] text-white px-4 py-2.5 rounded-full shadow-[0_8px_20px_rgba(255,107,0,0.3)]">Dashboard →</Link>
           </div>
         </div>
+        <div className="h-[1px] bg-gradient-to-r from-transparent via-[#FF8A2A]/60 to-transparent" />
       </header>
 
       {/* HERO - Deep Green + Eloquent Orange */}
       <section className="bg-[#0B2B1E] text-white px-5 pt-10 pb-14 relative overflow-hidden">
-        {/* Soft luxury glows - green + orange */}
         <div className="absolute -top-24 -right-24 w-[320px] h-[320px] bg-[#FF6B00]/20 blur-[90px] rounded-full pointer-events-none" />
         <div className="absolute top-52 -left-24 w-[220px] h-[220px] bg-[#1A5C3F]/60 blur-[70px] rounded-full pointer-events-none" />
-        {/* Fine gold line texture */}
         <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF8A2A]/50 to-transparent" />
 
         <div className="max-w-6xl mx-auto relative">
@@ -69,14 +70,13 @@ export default function Home() {
             Rent, Buy Land & Houses with verified documents. No Omo Onile. Deed, Survey & Family Receipt included.
           </p>
 
-          {/* Trust pills - elegant */}
           <div className="flex flex-wrap gap-2 mt-5">
             {["✓ Deed of Assignment", "✓ Registered Survey", "✓ Family Receipt", "✓ 24/7 Support"].map(t => (
               <span key={t} className="bg-white/[0.07] border border-white/10 text-[11px] font-medium px-3 py-1.5 rounded-full text-white/80 backdrop-blur">{t}</span>
             ))}
           </div>
 
-          {/* LUXURY SEARCH CARD - Cream + Green + Orange */}
+          {/* LUXURY SEARCH CARD */}
           <div className="bg-white text-black rounded-[24px] p-4 mt-7 shadow-[0_24px_60px_rgba(0,0,0,0.45)] border border-[#FF6B00]/10">
             <p className="text-[11px] font-black tracking-[0.22em] text-[#0B2B1E]/50 px-1 mb-2.5">SEARCH VERIFIED PROPERTIES</p>
             <div className="grid md:grid-cols-4 gap-2.5">
@@ -100,7 +100,6 @@ export default function Home() {
             <p className="bg-[#0B2B1E] text-white text-center font-bold py-3.5 rounded-[14px] mt-3 text-[14px] tracking-wide">Showing {filtered.length} Properties Below <span className="text-[#FF8A2A]">↓</span></p>
           </div>
 
-          {/* Stats - elegant */}
           <div className="flex gap-7 mt-6">
             <div><p className="font-black text-[19px]">500+</p><p className="text-[10px] tracking-[0.18em] text-white/50">HAPPY CLIENTS</p></div>
             <div><p className="font-black text-[19px]">10+ <span className="text-[#FF8A2A]">Years</span></p><p className="text-[10px] tracking-[0.18em] text-white/50">OF TRUST</p></div>
@@ -173,4 +172,4 @@ export default function Home() {
       <Footer />
     </div>
   );
-                                                                                                                                                                           }
+}
