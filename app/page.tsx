@@ -34,11 +34,7 @@ export default function Home() {
         <div className="flex items-center justify-between px-4 py-2.5 max-w-6xl mx-auto">
           <Link href="/" className="flex items-center">
             <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 shadow-[0_8px_20px_rgba(0,0,0,0.25)]">
-              <img
-                src="/logo.png"
-                alt="Clever-Biz Synergy Links Nig. Ltd"
-                className="h-[42px] md:h-[48px] w-auto object-contain"
-              />
+              <img src="/logo.png" alt="Clever-Biz Synergy Links Nig. Ltd" className="h-[42px] md:h-[48px] w-auto object-contain" />
             </div>
           </Link>
           <div className="flex items-center gap-3">
@@ -49,43 +45,69 @@ export default function Home() {
         <div className="h-[1px] bg-gradient-to-r from-transparent via-[#FF8A2A]/60 to-transparent" />
       </header>
 
-      {/* HERO - LUXURIOUS BACKGROUND */}
-      <section className="relative text-white px-5 pt-10 pb-14 overflow-hidden bg-[#071F15]">
-        {/* 1. Deep Luxury Gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#1A5C3F_0%,_#0B2B1E_45%,_#071F15_100%)]" />
-        {/* 2. Gold Glow */}
-        <div className="absolute -top-32 -right-20 w-[380px] h-[380px] bg-[#FF6B00]/25 blur-[100px] rounded-full" />
-        <div className="absolute top-40 -left-24 w-[260px] h-[260px] bg-[#FFD700]/10 blur-[80px] rounded-full" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#0B2B1E]/80 blur-[80px] rounded-full" />
-        {/* 3. Luxury Pattern - Subtle Diamonds */}
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: `linear-gradient(45deg, #fff 1px, transparent 1px), linear-gradient(-45deg, #fff 1px, transparent 1px)`, backgroundSize: `28px 28px` }} />
-        {/* 4. Top Gold Line + Bottom Fade */}
-        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFD700]/70 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-[60px] bg-gradient-to-t from-[#F8F6F1] to-transparent" />
+      {/* HERO - LUXURY HOUSE BACKGROUND - EXTERIOR + INTERIOR */}
+      <section className="relative text-white px-5 pt-10 pb-14 overflow-hidden">
+        {/* 1. LUXURY EXTERIOR - Main Background */}
+        <img
+          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop"
+          alt="Luxury Modern House Exterior"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* 2. LUXURY INTERIOR - Blended Bottom Right - For depth */}
+        <img
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+          alt="Luxury Interior"
+          className="absolute bottom-0 right-0 w-[55%] h-[55%] object-cover opacity-0 md:opacity-0 hidden"
+        />
+        {/* 3. DARK LUXURY OVERLAY - So text go pop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071F15]/95 via-[#0B2B1E]/85 to-[#0B2B1E]/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071F15]/90 via-[#071F15]/40 to-transparent" />
+        {/* 4. Gold Glow */}
+        <div className="absolute -top-20 -right-20 w-[350px] h-[350px] bg-[#FF6B00]/30 blur-[100px] rounded-full" />
+        <div className="absolute bottom-10 -left-20 w-[250px] h-[250px] bg-[#FFD700]/15 blur-[80px] rounded-full" />
+        {/* 5. Top Gold Line + Bottom Fade */}
+        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFD700]/80 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[70px] bg-gradient-to-t from-[#F8F6F1] to-transparent" />
 
         <div className="max-w-6xl mx-auto relative">
           <div className="flex items-center gap-3">
             <span className="h-[1px] w-8 bg-gradient-to-r from-[#FFD700] to-[#FF6B00]" />
-            <p className="text-[#FFB877] font-bold text-[11px] tracking-[0.28em]">10 YEARS OF TRUST • SERVICE ABOVE SELF</p>
+            <p className="text-[#FFB877] font-bold text-[11px] tracking-[0.28em] drop-shadow">10 YEARS OF TRUST • SERVICE ABOVE SELF</p>
           </div>
 
-          <h1 className="text-[42px] leading-[1.05] md:text-[64px] font-black mt-5 tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+          <h1 className="text-[42px] leading-[1.05] md:text-[64px] font-black mt-5 tracking-tight drop-shadow-[0_6px_25px_rgba(0,0,0,0.6)]">
             Find Your Perfect<br />
             Home With <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE9A8] via-[#FF8A2A] to-[#FF6B00]">Clever-Biz</span>
           </h1>
 
-          <p className="text-white/70 mt-4 max-w-[430px] text-[15px] leading-relaxed">
+          <p className="text-white/85 mt-4 max-w-[430px] text-[15px] leading-relaxed drop-shadow">
             Rent, Buy Land & Houses with verified documents. No Omo Onile. Deed, Survey & Family Receipt included.
           </p>
 
+          {/* Luxury Mini Gallery - Interior + Exterior Proof */}
+          <div className="flex gap-2 mt-5">
+            <div className="relative w-[110px] h-[70px] rounded-[12px] overflow-hidden border-2 border-white/30 shadow-xl">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover" />
+              <span className="absolute bottom-1 left-1 bg-black/70 text-[9px] font-bold px-1.5 py-0.5 rounded-full">EXTERIOR</span>
+            </div>
+            <div className="relative w-[110px] h-[70px] rounded-[12px] overflow-hidden border-2 border-white/30 shadow-xl">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover" />
+              <span className="absolute bottom-1 left-1 bg-black/70 text-[9px] font-bold px-1.5 py-0.5 rounded-full">INTERIOR</span>
+            </div>
+            <div className="relative w-[110px] h-[70px] rounded-[12px] overflow-hidden border-2 border-[#FFD700]/60 shadow-xl">
+              <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover" />
+              <span className="absolute bottom-1 left-1 bg-[#FF6B00] text-[9px] font-bold px-1.5 py-0.5 rounded-full">LUXURY</span>
+            </div>
+          </div>
+
           <div className="flex flex-wrap gap-2 mt-5">
             {["✓ Deed of Assignment", "✓ Registered Survey", "✓ Family Receipt", "✓ 24/7 Support"].map(t => (
-              <span key={t} className="bg-white/[0.08] backdrop-blur-md border border-white/15 text-[11px] font-medium px-3 py-1.5 rounded-full text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">{t}</span>
+              <span key={t} className="bg-black/40 backdrop-blur-md border border-white/20 text-[11px] font-medium px-3 py-1.5 rounded-full text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">{t}</span>
             ))}
           </div>
 
           {/* LUXURY SEARCH CARD */}
-          <div className="bg-white/[0.98] text-black rounded-[24px] p-4 mt-7 shadow-[0_30px_70px_rgba(0,0,0,0.5),_inset_0_1px_0_rgba(255,255,255,0.9)] border border-[#FFD700]/30 relative overflow-hidden">
+          <div className="bg-white text-black rounded-[24px] p-4 mt-6 shadow-[0_30px_70px_rgba(0,0,0,0.55)] border border-[#FFD700]/40 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#FFD700] via-[#FF6B00] to-[#FFD700]" />
             <p className="text-[11px] font-black tracking-[0.22em] text-[#0B2B1E]/50 px-1 mb-2.5">SEARCH VERIFIED PROPERTIES</p>
             <div className="grid md:grid-cols-4 gap-2.5">
@@ -110,9 +132,9 @@ export default function Home() {
           </div>
 
           <div className="flex gap-7 mt-6">
-            <div><p className="font-black text-[19px]">500+</p><p className="text-[10px] tracking-[0.18em] text-white/50">HAPPY CLIENTS</p></div>
-            <div><p className="font-black text-[19px]">10+ <span className="text-[#FFB877]">Years</span></p><p className="text-[10px] tracking-[0.18em] text-white/50">OF TRUST</p></div>
-            <div><p className="font-black text-[19px]">100%</p><p className="text-[10px] tracking-[0.18em] text-white/50">VERIFIED</p></div>
+            <div><p className="font-black text-[19px] drop-shadow">500+</p><p className="text-[10px] tracking-[0.18em] text-white/60">HAPPY CLIENTS</p></div>
+            <div><p className="font-black text-[19px] drop-shadow">10+ <span className="text-[#FFB877]">Years</span></p><p className="text-[10px] tracking-[0.18em] text-white/60">OF TRUST</p></div>
+            <div><p className="font-black text-[19px] drop-shadow">100%</p><p className="text-[10px] tracking-[0.18em] text-white/60">VERIFIED</p></div>
           </div>
         </div>
       </section>
@@ -181,4 +203,4 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
+          }
