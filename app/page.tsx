@@ -29,121 +29,78 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#F8F6F1]">
-      {/* HEADER - WITH YOUR REAL LOGO */}
       <header className="bg-[#0B2B1E] text-white sticky top-0 z-50 border-b border-white/10">
         <div className="flex items-center justify-between px-4 py-2.5 max-w-6xl mx-auto">
           <Link href="/" className="flex items-center">
             <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 shadow-[0_8px_20px_rgba(0,0,0,0.25)]">
-              <img src="/logo.png" alt="Clever-Biz Synergy Links Nig. Ltd" className="h-[42px] md:h-[48px] w-auto object-contain" />
+              <img src="/logo.png" alt="Clever-Biz" className="h-[42px] md:h-[48px] w-auto object-contain" />
             </div>
           </Link>
           <div className="flex items-center gap-3">
             <Link href="/login" className="text-[13px] font-bold text-white/80">Login</Link>
-            <Link href="/dashboard" className="text-[13px] font-bold bg-[#FF6B00] text-white px-4 py-2.5 rounded-full shadow-[0_8px_20px_rgba(255,107,0,0.3)]">Dashboard →</Link>
+            <Link href="/dashboard" className="text-[13px] font-bold bg-[#FF6B00] text-white px-4 py-2.5 rounded-full">Dashboard →</Link>
           </div>
         </div>
         <div className="h-[1px] bg-gradient-to-r from-transparent via-[#FF8A2A]/60 to-transparent" />
       </header>
 
-      {/* HERO - LUXURY HOUSE BACKGROUND - EXTERIOR + INTERIOR */}
+      {/* HERO - HOUSE NOW VISIBLE */}
       <section className="relative text-white px-5 pt-10 pb-14 overflow-hidden">
-        {/* 1. LUXURY EXTERIOR - Main Background */}
-        <img
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop"
-          alt="Luxury Modern House Exterior"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        {/* 2. LUXURY INTERIOR - Blended Bottom Right - For depth */}
-        <img
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
-          alt="Luxury Interior"
-          className="absolute bottom-0 right-0 w-[55%] h-[55%] object-cover opacity-0 md:opacity-0 hidden"
-        />
-        {/* 3. DARK LUXURY OVERLAY - So text go pop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#071F15]/95 via-[#0B2B1E]/85 to-[#0B2B1E]/95" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071F15]/90 via-[#071F15]/40 to-transparent" />
-        {/* 4. Gold Glow */}
-        <div className="absolute -top-20 -right-20 w-[350px] h-[350px] bg-[#FF6B00]/30 blur-[100px] rounded-full" />
-        <div className="absolute bottom-10 -left-20 w-[250px] h-[250px] bg-[#FFD700]/15 blur-[80px] rounded-full" />
-        {/* 5. Top Gold Line + Bottom Fade */}
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop" alt="Luxury House" className="absolute inset-0 w-full h-full object-cover brightness-[1.1]" />
+        {/* LIGHT OVERLAY - House go show */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071F15]/60 via-[#0B2B1E]/45 to-[#071F15]/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071F15]/70 via-[#071F15]/15 to-transparent" />
         <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFD700]/80 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-[70px] bg-gradient-to-t from-[#F8F6F1] to-transparent" />
 
         <div className="max-w-6xl mx-auto relative">
           <div className="flex items-center gap-3">
             <span className="h-[1px] w-8 bg-gradient-to-r from-[#FFD700] to-[#FF6B00]" />
-            <p className="text-[#FFB877] font-bold text-[11px] tracking-[0.28em] drop-shadow">10 YEARS OF TRUST • SERVICE ABOVE SELF</p>
+            <p className="text-[#FFB877] font-bold text-[11px] tracking-[0.28em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">10 YEARS OF TRUST • SERVICE ABOVE SELF</p>
           </div>
-
-          <h1 className="text-[42px] leading-[1.05] md:text-[64px] font-black mt-5 tracking-tight drop-shadow-[0_6px_25px_rgba(0,0,0,0.6)]">
-            Find Your Perfect<br />
-            Home With <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE9A8] via-[#FF8A2A] to-[#FF6B00]">Clever-Biz</span>
+          <h1 className="text-[42px] leading-[1.05] md:text-[64px] font-black mt-5 tracking-tight drop-shadow-[0_6px_20px_rgba(0,0,0,0.8)]">
+            Find Your Perfect<br />Home With <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFE9A8] via-[#FF8A2A] to-[#FF6B00]">Clever-Biz</span>
           </h1>
-
-          <p className="text-white/85 mt-4 max-w-[430px] text-[15px] leading-relaxed drop-shadow">
+          <p className="text-white mt-4 max-w-[430px] text-[15px] leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] font-medium">
             Rent, Buy Land & Houses with verified documents. No Omo Onile. Deed, Survey & Family Receipt included.
           </p>
 
-          {/* Luxury Mini Gallery - Interior + Exterior Proof */}
           <div className="flex gap-2 mt-5">
-            <div className="relative w-[110px] h-[70px] rounded-[12px] overflow-hidden border-2 border-white/30 shadow-xl">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover" />
-              <span className="absolute bottom-1 left-1 bg-black/70 text-[9px] font-bold px-1.5 py-0.5 rounded-full">EXTERIOR</span>
-            </div>
-            <div className="relative w-[110px] h-[70px] rounded-[12px] overflow-hidden border-2 border-white/30 shadow-xl">
-              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover" />
-              <span className="absolute bottom-1 left-1 bg-black/70 text-[9px] font-bold px-1.5 py-0.5 rounded-full">INTERIOR</span>
-            </div>
-            <div className="relative w-[110px] h-[70px] rounded-[12px] overflow-hidden border-2 border-[#FFD700]/60 shadow-xl">
-              <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover" />
-              <span className="absolute bottom-1 left-1 bg-[#FF6B00] text-[9px] font-bold px-1.5 py-0.5 rounded-full">LUXURY</span>
-            </div>
+            <div className="relative w-[110px] h-[70px] rounded-[12px] overflow-hidden border-2 border-white/50 shadow-xl"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover" /><span className="absolute bottom-1 left-1 bg-black/70 text-[9px] font-bold px-1.5 py-0.5 rounded-full">EXTERIOR</span></div>
+            <div className="relative w-[110px] h-[70px] rounded-[12px] overflow-hidden border-2 border-white/50 shadow-xl"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover" /><span className="absolute bottom-1 left-1 bg-black/70 text-[9px] font-bold px-1.5 py-0.5 rounded-full">INTERIOR</span></div>
+            <div className="relative w-[110px] h-[70px] rounded-[12px] overflow-hidden border-2 border-[#FFD700] shadow-xl"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=600&auto=format&fit=crop" className="w-full h-full object-cover" /><span className="absolute bottom-1 left-1 bg-[#FF6B00] text-[9px] font-bold px-1.5 py-0.5 rounded-full">LUXURY</span></div>
           </div>
 
           <div className="flex flex-wrap gap-2 mt-5">
             {["✓ Deed of Assignment", "✓ Registered Survey", "✓ Family Receipt", "✓ 24/7 Support"].map(t => (
-              <span key={t} className="bg-black/40 backdrop-blur-md border border-white/20 text-[11px] font-medium px-3 py-1.5 rounded-full text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">{t}</span>
+              <span key={t} className="bg-black/50 backdrop-blur-md border border-white/30 text-[11px] font-medium px-3 py-1.5 rounded-full text-white">{t}</span>
             ))}
           </div>
 
-          {/* LUXURY SEARCH CARD */}
           <div className="bg-white text-black rounded-[24px] p-4 mt-6 shadow-[0_30px_70px_rgba(0,0,0,0.55)] border border-[#FFD700]/40 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#FFD700] via-[#FF6B00] to-[#FFD700]" />
             <p className="text-[11px] font-black tracking-[0.22em] text-[#0B2B1E]/50 px-1 mb-2.5">SEARCH VERIFIED PROPERTIES</p>
             <div className="grid md:grid-cols-4 gap-2.5">
-              <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 border border-black/5">
-                <label className="text-[9px] font-black tracking-widest text-black/40">TYPE</label>
-                <select value={filterTag} onChange={(e) => setFilterTag(e.target.value)} className="bg-transparent w-full text-[14px] font-medium outline-none pb-0.5"><option>All</option><option>Rent - TO LET</option><option>Sale - FOR SALE</option></select>
-              </div>
-              <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 border border-black/5">
-                <label className="text-[9px] font-black tracking-widest text-black/40">CATEGORY</label>
-                <select value={filterType} onChange={(e) => setFilterType(e.target.value)} className="bg-transparent w-full text-[14px] font-medium outline-none pb-0.5"><option>All</option><option>House</option><option>Land</option><option>Apartment</option><option>Shop</option></select>
-              </div>
-              <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 border border-black/5">
-                <label className="text-[9px] font-black tracking-widest text-black/40">CITY</label>
-                <select className="bg-transparent w-full text-[14px] font-medium outline-none pb-0.5"><option>Abeokuta & Lagos</option><option>Abeokuta</option><option>Lagos</option></select>
-              </div>
-              <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 border border-black/5">
-                <label className="text-[9px] font-black tracking-widest text-black/40">AREA</label>
-                <select className="bg-transparent w-full text-[14px] font-medium outline-none pb-0.5"><option>All Areas</option><option>Adigbe</option><option>Kobape</option><option>Akowonjo</option><option>Shasha</option></select>
-              </div>
+              <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 border border-black/5"><label className="text-[9px] font-black tracking-widest text-black/40">TYPE</label><select value={filterTag} onChange={(e) => setFilterTag(e.target.value)} className="bg-transparent w-full text-[14px] font-medium outline-none pb-0.5"><option>All</option><option>Rent - TO LET</option><option>Sale - FOR SALE</option></select></div>
+              <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 border border-black/5"><label className="text-[9px] font-black tracking-widest text-black/40">CATEGORY</label><select value={filterType} onChange={(e) => setFilterType(e.target.value)} className="bg-transparent w-full text-[14px] font-medium outline-none pb-0.5"><option>All</option><option>House</option><option>Land</option><option>Apartment</option><option>Shop</option></select></div>
+              <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 border border-black/5"><label className="text-[9px] font-black tracking-widest text-black/40">CITY</label><select className="bg-transparent w-full text-[14px] font-medium outline-none pb-0.5"><option>Abeokuta & Lagos</option><option>Abeokuta</option><option>Lagos</option></select></div>
+              <div className="bg-[#F8F6F1] rounded-[14px] px-3 py-1.5 border border-black/5"><label className="text-[9px] font-black tracking-widest text-black/40">AREA</label><select className="bg-transparent w-full text-[14px] font-medium outline-none pb-0.5"><option>All Areas</option><option>Adigbe</option><option>Kobape</option><option>Akowonjo</option><option>Shasha</option></select></div>
             </div>
             <p className="bg-gradient-to-r from-[#0B2B1E] to-[#1A5C3F] text-white text-center font-bold py-3.5 rounded-[14px] mt-3 text-[14px] tracking-wide shadow-lg">Showing {filtered.length} Properties Below <span className="text-[#FFB877]">↓</span></p>
           </div>
 
           <div className="flex gap-7 mt-6">
-            <div><p className="font-black text-[19px] drop-shadow">500+</p><p className="text-[10px] tracking-[0.18em] text-white/60">HAPPY CLIENTS</p></div>
-            <div><p className="font-black text-[19px] drop-shadow">10+ <span className="text-[#FFB877]">Years</span></p><p className="text-[10px] tracking-[0.18em] text-white/60">OF TRUST</p></div>
-            <div><p className="font-black text-[19px] drop-shadow">100%</p><p className="text-[10px] tracking-[0.18em] text-white/60">VERIFIED</p></div>
+            <div><p className="font-black text-[19px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">500+</p><p className="text-[10px] tracking-[0.18em] text-white/80">HAPPY CLIENTS</p></div>
+            <div><p className="font-black text-[19px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">10+ <span className="text-[#FFB877]">Years</span></p><p className="text-[10px] tracking-[0.18em] text-white/80">OF TRUST</p></div>
+            <div><p className="font-black text-[19px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">100%</p><p className="text-[10px] tracking-[0.18em] text-white/80">VERIFIED</p></div>
           </div>
         </div>
       </section>
 
-      {/* LISTINGS */}
       <section className="max-w-6xl mx-auto px-5 py-10">
         <p className="text-[#FF6B00] font-bold text-[11px] tracking-[0.25em]">PROPERTY</p>
         <h2 className="text-[26px] font-black text-[#0B2B1E] tracking-tight">Latest Listings</h2>
-        {filtered.length === 0 && <p className="text-gray-500 text-sm mt-4 bg-white p-4 rounded-2xl shadow-sm">No properties yet for this filter. Go to /properties and add one with photos.</p>}
+        {filtered.length === 0 && <p className="text-gray-500 text-sm mt-4 bg-white p-4 rounded-2xl shadow-sm">No properties yet for this filter.</p>}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
           {filtered.map((p) => {
             const gallery = p.image_urls?.length ? p.image_urls : (p.image_url ? [p.image_url] : []);
@@ -168,28 +125,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES */}
       <section className="bg-white py-10 px-5">
         <div className="max-w-6xl mx-auto">
           <p className="text-[#FF6B00] font-bold text-[11px] tracking-[0.25em]">WHAT WE DO</p>
           <h2 className="text-[26px] font-black text-[#0B2B1E]">Our Services</h2>
           <div className="grid md:grid-cols-3 gap-4 mt-5">
-            {[
-              ["🏠", "Real Estate Management", "Letting, buying, leasing & finding your dream accommodation."],
-              ["🧱", "Building Materials", "Hardware, tools, doors, gates, railings & more."],
-              ["🚗", "Automobile Sales", "Toyota, Honda, Lexus, Land Rover, KIA, Mercedes & more."],
-            ].map(([icon, title, desc]) => (
-              <div key={title} className="bg-[#F8F6F1] p-5 rounded-[20px] border border-black/5">
-                <p className="text-[28px]">{icon}</p>
-                <h3 className="font-bold mt-2 text-[#0B2B1E]">{title}</h3>
-                <p className="text-[13px] text-gray-500 mt-1 leading-relaxed">{desc}</p>
-              </div>
+            {[["🏠", "Real Estate Management", "Letting, buying, leasing & finding your dream accommodation."],["🧱", "Building Materials", "Hardware, tools, doors, gates, railings & more."],["🚗", "Automobile Sales", "Toyota, Honda, Lexus, Land Rover, KIA, Mercedes & more."]].map(([icon, title, desc]) => (
+              <div key={title} className="bg-[#F8F6F1] p-5 rounded-[20px] border border-black/5"><p className="text-[28px]">{icon}</p><h3 className="font-bold mt-2 text-[#0B2B1E]">{title}</h3><p className="text-[13px] text-gray-500 mt-1 leading-relaxed">{desc}</p></div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* VALUES */}
       <section className="max-w-6xl mx-auto px-5 py-10">
         <h2 className="text-[26px] font-black text-[#0B2B1E]">Why Clever-Biz?</h2>
         <p className="text-gray-500 text-[13px] mt-1">We understand the dynamics of the property market.</p>
@@ -199,8 +146,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-
       <Footer />
     </div>
   );
-          }
+}
